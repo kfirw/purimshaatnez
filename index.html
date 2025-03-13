@@ -46,7 +46,7 @@
 </head>
 <body>
 
-    <h1>פורים שמח! לחצו על אוזן ההמן כדי לפתוח אותה</h1>
+    <h1 id="instruction">פורים שמח! לחצו על אוזן ההמן כדי לפתוח אותה</h1>
     <img id="cookie" src="cookie-closed.png" alt="אוזן המן">
     <p id="fortune"></p>
 
@@ -89,6 +89,9 @@
 
             document.getElementById("fortune").innerHTML = fortuneText;
             document.getElementById("fortune").style.visibility = "visible";
+
+            // הסתרת המשפט העליון
+            document.getElementById("instruction").style.display = "none";
 
             // אנימציה קצרה להחלפת תמונה
             document.getElementById("cookie").style.opacity = "0";

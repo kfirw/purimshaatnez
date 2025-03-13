@@ -9,20 +9,35 @@
             text-align: center; 
             font-family: Arial, sans-serif; 
             background-color: #b2dfdb; /* צבע רקע ורדרד עדין */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* מרכז את התוכן */
+            align-items: center; /* מוודא שהתוכן ממויין במרכז */
+            height: 100vh; /* בגובה המסך */
         }
 
-      cursor: pointer; 
+        #cookie {
+            cursor: pointer; 
             width: 80%;  /* משנה את רוחב התמונה בהתאם לרוחב המסך */
             max-width: 600px;  /* מגביל את רוחב התמונה למקסימום של 600px */
             transition: opacity 0.5s ease-in-out; 
             background-color: transparent; /* מוודא שהרקע לא משתנה */
+            object-fit: contain; /* מבטיח שהתמונה לא תיחתך */
         }
 
         #fortune {
             margin-top: 20px; 
-            font-size: 40px; 
+            font-size: 2em;  /* משנה את גודל הטקסט באופן רספונסיבי */
             font-weight: normal; 
             visibility: hidden;
+        }
+
+        /* Media query לפלאפונים */
+        @media (max-width: 600px) {
+            #fortune {
+                font-size: 1.5em;  /* קטן את גודל הטקסט במסכים קטנים */
+            }
         }
     </style>
 </head>

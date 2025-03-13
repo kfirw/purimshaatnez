@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פורים שמח!</title>
+    <style>
+        body { 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            background-color: #b2dfdb; /* צבע רקע ורדרד עדין */
+        }
+
+        #cookie {
+            cursor: pointer; 
+            width: 600px; 
+            transition: opacity 0.5s ease-in-out; 
+            background-color: transparent; /* מוודא שהרקע לא משתנה */
+        }
+
+        #fortune {
+            margin-top: 20px; 
+            font-size: 40px; 
+            font-weight: bold; 
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>לחצו על אוזן ההמן כדי לפתוח אותה</h1>
+    <img id="cookie" src="cookie-closed.png" alt="אוזן המן">
+    <p id="fortune"></p>
+
+    <script>
+        const fortunes = [
+            "אם וכאשר יקלע לדרכך שפן דובר עברית עם טיפים להשקעות - נבון יהיה להקשיב לו",
+            "יש לך הבנה טלפתית סבירה לשפת החתולים - לכן הם מפסיקים לדבר בנוכחותך",
+            "המשפט הראשון שיצא מפיך ביום רביעי אחרי השעה 16:37, יכריע את גורלו של עם ישראל בשנת ה'תתמ\"ג",
+            "המלאך השומר שלך יפוטר בשל חשד לשחיתות ויוחלף על ידי ועדה קרואה",
+            "מפת האוצר הבאה שתזדמן לך תהיה חסרת ערך - יסתבר שהאוצר האמיתי היה בתוכך כל הזמן הזה",
+            "גורלך כחלוץ המאדים מחכה לך כבר משנת 1667. לא יהיה מנומס לתת לו להמתין עוד",
+            "החיוך שלך יפתח לך דלתות שמעולם לא חשבת להגיע אליהן - אבל מה שמחכה מאחוריהן רוצה אותו לעצמו",
+            "ריח העוגיות הבאות שיצאו מן המטבח שלך יעניקו השראה לסדרת רבי מכר בעוד ארבעים שנה",
+            "מכשיר הטלפון החכם שלך ינסה להשתלט בקרוב על חייך",
+            "המקרר שלך מתחיל לפתח כלפיך רגשות אשם. מוטב לטפל בהם לפני שידביקו את האוכל",
+            "בסוף חודש אדר, תנתן לך האפשרות לשוב לתחילתו ולנסות אותו מחדש",
+            "המשמעות האמיתית של המילה <strong>אלפיקיאדו</strong> לעולם לא תתגלה לך",
+            "מוטב לאהוב ולאבד מלהשתכפל לארבעה עותקים זהים של עצמך ולאבד",
+            "המראות יפסיקו לשקר לך רק לאחר הפעלת פטיש",
+            "המורה לפילאטיס אינה מה שהיא נראית. המורה ליוגה פשוט בלתי נראית",
+            "אל תסתכל בקנקן, וגם לא במה שיש בו. לפעמים כדאי פשוט להקשיב",
+            "ההזדמנות הטובה ביותר להשמיד את הקבוצה האתנית השנואה עליך תהיה בחשוון. הצלחה לא מובטחת",
+            "הרשמה לקורס מנעולנות תסייע לך מאד בפעם הבאה שמפתח חשוב יאבד",
+            "התשובה לשאלה שטורדת את תת-המודע שלך בחודש האחרון היא <strong>לבנה</strong>",
+            "אם לא יוצאים, מקומות מופלאים יגיעו אליך בקרוב",
+            "באחת מהנסיעות הבאות שלך תתקלי במשיח בעילום שם ותוכלי לשכנע אותו לבוא",
+            "המחשבה הבאה שלך תהיה מקורית לחלוטין",
+            "מלחמת העולם הבא לא תגיע מהכיוון הצפוי. לא, גם לא מהכיוון הזה",
+            "די לחכימא ברמיזא, לשטיא בכורמיזא",
+            "אך טוב וחסד ירדפוך כל ימי חייך. רוץ"
+        ];
+
+        let isOpened = false;
+
+        document.getElementById("cookie").addEventListener("click", function() {
+            if (isOpened) return; // מונע פתיחה נוספת
+
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const fortuneText = fortunes[randomIndex];
+
+            document.getElementById("fortune").innerHTML = fortuneText;
+            document.getElementById("fortune").style.visibility = "visible";
+
+            // אנימציה קצרה להחלפת תמונה
+            document.getElementById("cookie").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("cookie").src = "cookie-open.png"; // מחליף לתמונה פתוחה
+                document.getElementById("cookie").style.opacity = "1";
+            }, 500);
+
+            isOpened = true;
+        });
+    </script>
+
+</body>
+</html>
